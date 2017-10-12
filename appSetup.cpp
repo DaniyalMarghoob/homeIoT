@@ -4,10 +4,10 @@ void appInit(void)
 {
 	fil_loads(NULL);
 	registerMqttCallBacks();
-	//registerHttpCallBacks();
+	registerHttpCallBacks();
 	registerOTACallBacks();
-	//initSSDP();
-	/*fauxmo.addDevice("zone one");
+	initSSDP();
+	fauxmo.addDevice("zone one");
     fauxmo.addDevice("zone two");
     fauxmo.addDevice("zone three");
     fauxmo.addDevice("zone four");
@@ -91,16 +91,15 @@ void appInit(void)
         			break;
         	
         }
-    });*/
+    });
 }
 void configWiFi()
 {
 
-	// //WiFi.disconnect();
-
-	// WiFiManager wifiManager;
-	// //wifiManager.setDebugOutput(false);
- //    wifiManager.autoConnect("PlutoLabsConfig");
+	WiFi.disconnect();
+    WiFiManager wifiManager;
+    wifiManager.setDebugOutput(false);
+ 	wifiManager.autoConnect("PlutoLabsConfig");
  
 	
 }
@@ -126,8 +125,8 @@ void registerMqttCallBacks(void)
 
 void registerHttpCallBacks(void)
 {
-	//SPIFFS.begin();
-	//server.serveStatic("/", SPIFFS, "/").setDefaultFile("index.htm");
+	SPIFFS.begin();
+	server.serveStatic("/", SPIFFS, "/").setDefaultFile("index.htm");
     
 
 	server.on("/", HTTP_GET,handleInfo);
@@ -141,7 +140,7 @@ void initSSDP(void)
 {
 	#ifdef DEBUG_EN
 		Serial.printf("Starting SSDP...\n");
-	#endif`
+	#endif
     SSDP.setSchemaURL("description.xml");
     SSDP.setHTTPPort(80);
     SSDP.setName("Philips hue clone");
