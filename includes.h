@@ -13,7 +13,7 @@
 #include "ESPAsyncWebServer.h"
 #include "wfManager.h"
 #include <ESP8266SSDP.h>
-//#include "fauxmoESP.h"
+#include "fauxmoESP.h"
 
 #include <ESP8266mDNS.h>
 
