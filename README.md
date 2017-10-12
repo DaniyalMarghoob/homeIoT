@@ -7,3 +7,6 @@ Board can be controlled over WiFi, WLAN even without any connectivity as this bo
 
 ESP8266 module can also control the working through voice recognition because it as a Wemo switch and recognize by Amazon echo dot present in same network.
 Main language used for this project is C and source code starts from .ino file.
+
+Protocols used for this projects are HTTP and MQTT.
+Libraries used for this project are ESP8266WiFi, AsyncMqttClient, ESP8266mDNS, fauxmoESP, ArduinoOTA.
